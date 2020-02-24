@@ -3,6 +3,8 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 const conection = require("./database/database")
+const categoriesController = require("./categories/CategoriesController")
+const articlesController = require("./articles/ArticlesController")
 
 //carregar a view engina
 app.set('view engine', 'ejs') 
@@ -21,6 +23,9 @@ conection
 app.get("/", (req, res)=>{
     res.render("index")
 })
+
+app.use("/", categoriesController)
+app.use("/", articlesController)
 
 //se rodar em producao pegar a porta aleatoria senao pega a porta 3001 definda
 const PORTA = process.env.PORT || 3001
