@@ -5,7 +5,7 @@ const bodyParser = require("body-parser")
 const conection = require("./database/database")
 
 //carregar a view engina
-app.set("view engine", "ejs")
+app.set('view engine', 'ejs') 
 
 //statico
 app.use(express.static('public'))
