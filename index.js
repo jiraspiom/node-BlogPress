@@ -17,10 +17,13 @@ app.use(bodyParser.json())
 //database
 conection
 
+//roda de teste
 app.get("/", (req, res)=>{
     res.render("index")
 })
 
-app.listen(3001, function(){
+//se rodar em producao pegar a porta aleatoria senao pega a porta 3001 definda
+const PORTA = process.env.PORT || 3001
+app.listen(PORTA, function(){
     console.log("O servidor esta rodando...")
 })
