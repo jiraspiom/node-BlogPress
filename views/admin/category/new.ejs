@@ -1,0 +1,23 @@
+
+<%-include ("../../partials/header.ejs") %>
+<%-include ("../../partials/navbar.ejs") %>
+<body>
+    
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h4>cadastro de categorias</h4>
+            </div>
+            <div class="card-body">
+                <form action=""  method="POST">
+                    <input type="text" name="title" class="form-control mt-3" placeholder="Defina a categoria" required>
+                    <input type="text" name="slug" class="form-control mt-3" placeholder="Defina o slug" required>
+                    <button type="submit" class="btn btn-success mt-3">adicionar categoria</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+<%-include ("../../partials/footer.ejs") %> 

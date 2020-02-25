@@ -3,8 +3,8 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 const conection = require("./database/database")
-const categoriesController = require("./categories/CategoriesController")
-const articlesController = require("./articles/ArticlesController")
+const categoriesController = require("./controller/CategoriesController")
+const articlesController = require("./controller/ArticlesController")
 
 //carregar a view engina
 app.set('view engine', 'ejs') 
