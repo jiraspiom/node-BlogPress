@@ -3,8 +3,10 @@ const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
 const conection = require("./database/database")
-const categoriesController = require("./controller/CategoriesController")
-const articlesController = require("./controller/ArticlesController")
+
+//referenciado as rotas
+const categoriaRota = require("./router/categoryRoutes")
+const articlesRota = require("./router/articleRoutes")
 
 //carregar a view engina
 app.set('view engine', 'ejs') 
@@ -24,8 +26,8 @@ app.get("/", (req, res)=>{
     res.render("index")
 })
 
-app.use("/", categoriesController)
-app.use("/", articlesController)
+app.use("/admin", categoriaRota)
+app.use("/admin", articlesRota)
 
 //se rodar em producao pegar a porta aleatoria senao pega a porta 3001 definda
 const PORTA = process.env.PORT || 3001

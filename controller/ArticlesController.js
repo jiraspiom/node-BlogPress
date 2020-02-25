@@ -1,12 +1,8 @@
-const express = require("express")
-const router = express.Router()
 
-router.get("/articles", (req, res)=>{
-    res.send("Rota de Artigo")
-})
-
-router.get("/admin/articles/new", (req, res)=>{
+exports.nova = (req, res) =>{
     res.render("admin/article/new")
-})
+}
 
-module.exports = router
+exports.edit = (req, res) =>{
+    res.render("admin/article/edit")
+}
