@@ -1,12 +1,14 @@
 const express = require("express")
-const rota = express.Router()
+const rotas = express.Router()
 const controlecategoria = require("../controller/CategoriesController")
 
-rota.get("/categorias/new",  controlecategoria.new)
+rotas.get("/categorias/new",  controlecategoria.new)
 //rota.post("/categoria/edit/:id", rotacategoria.edit)
-rota.get("/categorias/edit/:id", controlecategoria.edit)
+rotas.post("/categorias/save", controlecategoria.save)
+rotas.get("/categorias", controlecategoria.index)
 
-rota.post("/categorias/save", controlecategoria.save)
+rotas.get("/categorias/edit/:id", controlecategoria.edit)
 
 
-module.exports = rota
+
+module.exports = rotas

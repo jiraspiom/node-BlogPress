@@ -7,10 +7,6 @@ exports.new = (req, res) =>{
     res.render("admin/category/new")
 }
 
-exports.edit = (req, res) =>{
-    res.render("admin/category/edit")
-}
-
 exports.save = (req, res) =>{
     if(req.body.title != undefined){
         const novaCategoria = {
@@ -20,9 +16,18 @@ exports.save = (req, res) =>{
         
         new Categoria(novaCategoria).save().then(
             res.redirect("/")
-        )
-    }else{
-        res.redirect("admin/categorias/new")
+            )
+        }else{
+            res.redirect("admin/categorias/new")
+        }
+        
     }
+exports.edit = (req, res) =>{
+    res.render("admin/category/edit")
+}
 
+exports.index = (req, res) =>{
+    Categoria.find().then((categorias)=>{
+        res.render("admin/category/index", {categorias: categorias})
+    }).catch()
 }
