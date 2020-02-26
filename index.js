@@ -6,7 +6,7 @@ const conection = require("./database/database")
 
 //referenciado as rotas
 const categoriaRota = require("./router/categoryRoutes")
-const articlesRota = require("./router/articleRoutes")
+const artigoRota = require("./router/articleRoutes")
 
 //carregar a view engina
 app.set('view engine', 'ejs') 
@@ -27,7 +27,7 @@ app.get("/", (req, res)=>{
 })
 
 app.use("/admin", categoriaRota)
-app.use("/admin", articlesRota)
+app.use("/admin", artigoRota)
 
 //se rodar em producao pegar a porta aleatoria senao pega a porta 3001 definda
 const PORTA = process.env.PORT || 3001
