@@ -15,10 +15,10 @@ exports.save = (req, res) => {
         }
 
         new Categoria(novaCategoria).save().then(
-            res.redirect("/")
+            res.redirect("/admin/categorias")
         )
     } else {
-        res.redirect("admin/categorias/new")
+        res.redirect("/admin/categorias/new")
     }
 
 }
