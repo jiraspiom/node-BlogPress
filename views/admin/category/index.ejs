@@ -15,16 +15,19 @@
         </thead>
         <tbody>
             <% categorias.forEach((categoria) =>{ %>
-                <tr>
-                    <th><%= categoria.id %> </th>
-                    <th><%= categoria.title %> </th>
-                    <th><%= categoria.slug %> </th>
-                    <th>
-                        <button class="btn btn-danger">editar</button>
-                        <button class="btn btn-danger">deletar</button>
-                    </th>
-                </tr>
-            <% }) %> 
+            <tr>
+                <th><%= categoria.id %> </th>
+                <th><%= categoria.title %> </th>
+                <th><%= categoria.slug %> </th>
+                <th>
+                    <button class="btn btn-warning fa fa-pencil "> Editar </button>
+                    <form action="/admin/categorias/delete" method="post" style="display:inline">
+                        <input type="hidden" name="id" value="<%= categoria.id %>">
+                        <button class="btn btn-danger fa fa-trash">Delete </button>
+                    </form>
+                </th>
+            </tr>
+            <% }) %>
         </tbody>
     </table>
 
