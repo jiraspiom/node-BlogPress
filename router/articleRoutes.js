@@ -1,10 +1,7 @@
 const express = require("express")
-const rota = express.Router()
+const rotas = express.Router()
 const controle = require("../controller/ArticlesController")
 
-rota.get("/artigos/novo",  controle.nova)
-//rota.post("/categoria/edit/:id", rotacategoria.edit)
-rota.get("/artigos/edit/:id", controle.edit)
+rotas.get("/artigos/new",  controle.new)
 
-
-module.exports = rota
+module.exports = rotas

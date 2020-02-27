@@ -1,8 +1,4 @@
-
-exports.nova = (req, res) =>{
+//abrir o formulario novo
+exports.new = (req, res) =>{
     res.render("admin/article/new")
-}
-
-exports.edit = (req, res) =>{
-    res.render("admin/article/edit")
 }
