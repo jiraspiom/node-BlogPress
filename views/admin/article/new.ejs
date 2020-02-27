@@ -12,7 +12,15 @@
                     <input type="text" name="title" class="form-control mt-3" placeholder="Defina a categoria" required>
                     <br>
                     <textarea name="body" id="artigo" class="form-control"></textarea>
+                    <label for="categoria">Categorias:</label>
+                    <select name="categoria" id="categoria" class="custom-select">
+                        <% categorias.forEach(categoria => { %>
+                            <option value="<%= categoria.id %>"> <%= categoria.title %> </option>
+                        <% }) %>
+                    </select>
+
                     <button type="submit" class="btn btn-success mt-3">Adicionar categoria</button>
+                    
                 </form>
             </div>
         </div>
