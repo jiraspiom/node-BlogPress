@@ -50,5 +50,19 @@ exports.edit = (req, res) => {
     }).catch((error) => {
         res.redirect("/admin/categorias")
     })
+}
 
+//update tambem pode ser feito assim
+exports.update = (req, res) => {
+    Categoria.findOne({ _id: req.body.id }).then((categoria) => {
+        categoria.title = req.body.title
+        categoria.slug = slugifly(req.body.title)
+        categoria.save().then(() => {
+            res.redirect("/admin/categorias")
+        }).catch((err) => {
+            res.send("erro ao salvar a categoria")
+        })
+    }).catch((erro) => {
+        res.send("erro ao buscar a cateoria erro " + erro)
+    })
 }

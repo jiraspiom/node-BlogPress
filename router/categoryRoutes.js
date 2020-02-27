@@ -3,12 +3,11 @@ const rotas = express.Router()
 const controlecategoria = require("../controller/CategoriesController")
 
 rotas.get("/categorias/new",  controlecategoria.new)
-//rota.post("/categoria/edit/:id", rotacategoria.edit)
 rotas.post("/categorias/save", controlecategoria.save)
 rotas.get("/categorias", controlecategoria.index)
 rotas.post("/categorias/delete", controlecategoria.delete)
 rotas.get("/categorias/edit/:id", controlecategoria.edit)
-
+rotas.post("/categorias/update", controlecategoria.update)
 
 
 module.exports = rotas
