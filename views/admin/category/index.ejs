@@ -20,8 +20,11 @@
                 <th><%= categoria.title %> </th>
                 <th><%= categoria.slug %> </th>
                 <th>
-                    <button class="btn btn-warning fa fa-pencil "> Editar </button>
-                    <form action="/admin/categorias/delete" method="post" style="display:inline" onsubmit="confirmaDelete(event, this)">
+                    <a href="/admin/categorias/edit/<%= categoria.id %> ">
+                        <button class="btn btn-warning fa fa-pencil "> Editar </button>
+                    </a>
+                    <form action="/admin/categorias/delete" method="post" style="display:inline"
+                        onsubmit="confirmaDelete(event, this)">
                         <input type="hidden" name="id" value="<%= categoria.id %>">
                         <button class="btn btn-danger fa fa-trash">Delete </button>
                     </form>
@@ -36,14 +39,14 @@
 <%-include ("../../partials/footer.ejs") %>
 
 <script>
-    function confirmaDelete(event, form){
+    function confirmaDelete(event, form) {
         event.preventDefault();
         console.log("O formulario nao foi enviado ou seja deletado")
 
         var confirmacao = confirm("TEM CERTEZA QUE DESEJA DELETAR?")
-        if(confirmacao){
+        if (confirmacao) {
             form.submit();
-        }else{
+        } else {
             console.log("nao quero deletar foi ingano")
         }
 

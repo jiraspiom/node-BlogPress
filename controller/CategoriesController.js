@@ -20,10 +20,6 @@ exports.save = (req, res) => {
     } else {
         res.redirect("/admin/categorias/new")
     }
-
-}
-exports.edit = (req, res) => {
-    res.render("admin/category/edit")
 }
 
 exports.index = (req, res) => {
@@ -41,4 +37,18 @@ exports.delete = (req, res) => {
     } else { //null
         res.redirect("/admin/categorias")
     }
+}
+
+exports.edit = (req, res) => {
+    var id = req.params.id
+    Categoria.findOne({ _id: id }).then((categoria) => {
+        if (categoria != undefined) {
+            res.render("admin/category/edit", { categoria: categoria })
+        } else {
+            res.redirect("/admin/categorias")
+        }
+    }).catch((error) => {
+        res.redirect("/admin/categorias")
+    })
+
 }
