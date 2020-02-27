@@ -1,4 +1,37 @@
-<%- include ("../../partials/header.ejs") %>
-<%- include ("../../partials/navbar.ejs") %>
+<%-include ("../../partials/header.ejs") %>
+<%-include ("../../partials/navbar.ejs") %>
 
-<%- include ("../../partials/footer.ejs") %>
+<div class="container">
+    <h4>Artigos</h4>
+    <a href="/admin/artigos/new"><button class="btn btn-success"> Adicionar artigo</button></a>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Slug</th>
+                <th>Catetoria</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+      
+        </tbody>
+    </table>
+</div>
+
+<%-include ("../../partials/footer.ejs") %>
+
+<script>
+    function confirmaDelete(event, form) {
+        event.preventDefault();
+        console.log("O formulario nao foi enviado ou seja deletado")
+
+        var confirmacao = confirm("TEM CERTEZA QUE DESEJA DELETAR?")
+        if (confirmacao) {
+            form.submit();
+        } else {
+            console.log("nao quero deletar foi ingano")
+        }
+
+    }
+</script>
