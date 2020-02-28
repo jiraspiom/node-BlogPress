@@ -14,7 +14,20 @@
             </tr>
         </thead>
         <tbody>
-      
+            <% artigos.forEach(artigo => { %>
+            <tr>
+                <th><%= artigo.title %> </th>
+                <th><%= artigo.slug %> </th>
+                <th><%= artigo.category.title %> </th>
+                <th>
+                    <button class="btn btn-warning fa fa-pencil"></button>
+                    <form action="/admin/artigos/delete" method="POST" onsubmit="confirmaDelete(event, this)" style="display:inline">
+                        <input type="hidden" name="id" value="<%= artigo.id %>">
+                        <button class="btn btn-danger fa fa-trash"></button>
+                    </form>
+                </th>
+            </tr>
+            <% }) %>
         </tbody>
     </table>
 </div>

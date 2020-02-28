@@ -40,5 +40,19 @@ exports.save = (req, res) =>{
 }
 
 exports.index = (req, res) =>{
-    res.render("admin/article/index")
+    Artigo.find().populate("category").sort({ dateat: "desc" }).then((artigos)=>{
+        res.render("admin/article/index", {artigos: artigos})
+    })
+}
+
+exports.delete = (req, res) => {
+    var id = req.body.id
+    if (id != undefined) {
+        Artigo.remove({ _id: id }).then(() => {
+            res.redirect("/admin/artigos")
+        }).catch()
+    } else { //null
+        res.send("erro ao deletar")
+      //  res.redirect("/admin/artigos")
+    }
 }
