@@ -66,3 +66,13 @@ exports.update = (req, res) => {
         res.send("erro ao buscar a cateoria erro " + erro)
     })
 }
+
+//USUARIO -
+exports.categoria = (req, res) =>{
+    Categoria.find().sort({title: "asc"}).then((categorias)=>{
+        res.render("categories", {categorias: categorias})
+    }).catch(erro =>{
+        res.send("erro ao buscar as categoria - " + erro)
+    })
+}
+

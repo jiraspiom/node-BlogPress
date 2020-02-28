@@ -1,0 +1,10 @@
+<%-include ("./partials/header.ejs") %>
+<%- include ("./partials/navbar.ejs") %>
+<div class="container">
+    <% categorias.forEach(categoria => { %>
+        <a href="/categorias/<%= categoria.id %>"> <%= categoria.title %> </a>
+        <br>
+    <% }) %>
+</div>
+
+<%-include ("./partials/footer.ejs") %>

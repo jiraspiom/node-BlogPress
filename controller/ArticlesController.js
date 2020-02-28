@@ -65,9 +65,20 @@ exports.home = (req, res) => {
     })
 }
 
+//mostra o artigo pelo seu slug
 exports.artigo = (req, res) => {
     Artigo.findOne({ slug: req.params.slug }).then((artigo) => {
         res.render("article", { artigo: artigo })
+
+    }).catch(erro => {
+        res.send("erro ao buscar o artigo - erro: " + erro)
+    })
+}
+
+exports.artigosPorCategoria = (req, res) => {
+    var idCategoria = req.params.categoria
+    Artigo.find({category: idCategoria}).then((artigos) => {
+        res.render("article-for-category", { artigos: artigos })
 
     }).catch(erro => {
         res.send("erro ao buscar o artigo - erro: " + erro)
