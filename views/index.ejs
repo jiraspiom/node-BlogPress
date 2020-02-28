@@ -1,6 +1,28 @@
 
 <%-include ("./partials/header.ejs") %>
+<%- include ("./partials/navbar.ejs") %> 
+
+<div class="jumbotron">
+    <h1 class="display-4">Blog press</h1>
+    <p class="lead">Este e um simples blog de portifólio.</p>
+    <hr class="my-4">
+    <p>Ele está sendo desenvolvido em nodejs e ejs, para o tema foi usado o bootstrap4.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Saber mais</a>
+  </div>
+
 <body>
-    <h4>Ola mundo</h4>
+    <div class="container">  
+        <% artigos.forEach(artigo => { %>
+            <div class="card mt-3">
+                <div class="card-header">
+                        <%= artigo.title %> 
+                </div>
+                <div class="card-body">
+    
+                </div>
+            </div>       
+        <% }) %>
+   
+    </div>
 </body>
 <%-include ("partials/footer.ejs") %> 

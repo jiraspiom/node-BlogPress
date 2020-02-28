@@ -22,12 +22,11 @@ app.use(bodyParser.json())
 conection
 
 //roda de teste
-app.get("/", (req, res)=>{
-    res.render("index")
-})
+app.use("/", artigoRota)
 
 app.use("/admin", categoriaRota)
 app.use("/admin", artigoRota)
+
 
 //se rodar em producao pegar a porta aleatoria senao pega a porta 3001 definda
 const PORTA = process.env.PORT || 3001

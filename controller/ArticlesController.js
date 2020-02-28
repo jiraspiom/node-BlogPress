@@ -6,6 +6,13 @@ const Artigo = mongoose.model("articles")
 
 const slugifly = require("slugify")
 
+exports.home = (req, res) =>{
+    Artigo.find().sort({dateat: "desc"}).then((artigos)=>{
+        res.render("index", {artigos: artigos})
+      }).catch((erro)=>{
+        res.send("erro ao buscar os artigos - " + erro)
+    })
+}
 
 //abrir o formulario novo
 exports.new = (req, res) =>{
