@@ -3,6 +3,7 @@ const rotas = express.Router()
 const controle = require("../controller/ArticlesController")
 
 rotas.get("/", controle.home)
+rotas.get("/ler/:slug", controle.artigo)
 
 rotas.get("/artigos/new",  controle.new)
 rotas.post("/artigos/save", controle.save)

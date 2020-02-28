@@ -6,25 +6,17 @@ const Artigo = mongoose.model("articles")
 
 const slugifly = require("slugify")
 
-exports.home = (req, res) =>{
-    Artigo.find().sort({dateat: "desc"}).then((artigos)=>{
-        res.render("index", {artigos: artigos})
-      }).catch((erro)=>{
-        res.send("erro ao buscar os artigos - " + erro)
-    })
-}
-
 //abrir o formulario novo
-exports.new = (req, res) =>{
-    Categoria.find().then((categorias)=>{
-        res.render("admin/article/new", {categorias: categorias})
+exports.new = (req, res) => {
+    Categoria.find().then((categorias) => {
+        res.render("admin/article/new", { categorias: categorias })
 
-    }).catch((erro)=>{
+    }).catch((erro) => {
         res.send("Erro ao carregar as categorias")
     })
 }
 
-exports.save = (req, res) =>{
+exports.save = (req, res) => {
     //pegando os name do formulario para salvar o artigo
     var titulo = req.body.title
     var corpo = req.body.body
@@ -39,16 +31,16 @@ exports.save = (req, res) =>{
         category: categoria,
     }
 
-    new Artigo(novoArtigo).save().then(()=>{
+    new Artigo(novoArtigo).save().then(() => {
         res.redirect("/admin/artigos")
-    }).catch((erro) =>{
+    }).catch((erro) => {
         res.send("erro ao salvar " + erro)
     })
 }
 
-exports.index = (req, res) =>{
-    Artigo.find().populate("category").sort({ dateat: "desc" }).then((artigos)=>{
-        res.render("admin/article/index", {artigos: artigos})
+exports.index = (req, res) => {
+    Artigo.find().populate("category").sort({ dateat: "desc" }).then((artigos) => {
+        res.render("admin/article/index", { artigos: artigos })
     })
 }
 
@@ -60,6 +52,24 @@ exports.delete = (req, res) => {
         }).catch()
     } else { //null
         res.send("erro ao deletar")
-      //  res.redirect("/admin/artigos")
+        //  res.redirect("/admin/artigos")
     }
+}
+
+//relacionado ao artigo
+exports.home = (req, res) => {
+    Artigo.find().sort({ dateat: "desc" }).then((artigos) => {
+        res.render("index", { artigos: artigos })
+    }).catch((erro) => {
+        res.send("erro ao buscar os artigos - " + erro)
+    })
+}
+
+exports.artigo = (req, res) => {
+    Artigo.findOne({ slug: req.params.slug }).then((artigo) => {
+        res.render("article", { artigo: artigo })
+
+    }).catch(erro => {
+        res.send("erro ao buscar o artigo - erro: " + erro)
+    })
 }
