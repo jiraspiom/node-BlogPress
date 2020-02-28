@@ -1,0 +1,499 @@
+<%-include ("./partials/header.ejs") %>
+<%- include ("./partials/navbar.ejs") %>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h2>Preencha seus dados</h2>
+        </div>
+        <form method="post" action="">
+            <div class="row">
+                <div class="card">
+
+                    <div class="card-header">
+                        <h3 class="card-title">Identificação</h3>
+                    </div>
+                    <div class="card-body">
+                        <label for="cpf">CPF</label>
+                        <p class="form-control-static">953.756.351-00</p>
+                        <input type="hidden" id="cpf" name="cpf" value="953.756.351-00" maxlength="15">
+
+                        <label for="nome">Nome (completo)</label>
+                        <input type="text" class="form-control" id="nome" name="nome" maxlength="160" value="">
+                        
+                        <label for="nascimentoo">Data Nasc.</label>
+                      
+                            <input type="text" class="form-control" id="nascimento" name="nascimento" value=""
+                                placeholder="00/00/0000" maxlength="10">
+
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="genero" value="f"> Feminino
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="genero" value="m"> Masculino
+                                </label>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="card-header">
+                    <h3 class="card-title">Contato</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="email" name="email" value="" maxlength="150">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel-comercial" class="col-sm-2 control-label">Tel. Comercial</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="tel-comercial&quot;" name="tel-comercial"
+                                value="" maxlength="20">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel-celular" class="col-sm-2 control-label">Tel. Celular</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="tel-celular" name="tel-celular" value=""
+                                maxlength="20">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel-residencial" class="col-sm-2 control-label">Tel. Residêncial</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="tel-residencial" name="tel-residencial" value=""
+                                maxlength="20">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cargo" class="col-sm-2 control-label">Cargo</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="cargo" name="cargo" value=""
+                                placeholder="último cargo ou atual" maxlength="150">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa" class="col-sm-2 control-label">Empresa</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="empresa" name="empresa" value=""
+                                placeholder="última empresa ou atual" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="formacao" class="col-sm-2 control-label">Formação Acadêmica</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="formacao" name="formacao" value=""
+                                maxlength="150">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Endereço</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="cep" class="col-sm-2 control-label">CEP</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="cep" name="cep" value="" maxlength="10">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="endereco-residencial" class="col-sm-2 control-label">Endereço
+                                Residêncial</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="endereco-residencial"
+                                    name="endereco-residencial" value="" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bairro" class="col-sm-2 control-label">Bairro</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="bairro" name="bairro" value=""
+                                    maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade" class="col-sm-2 control-label">Cidade</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="cidade" name="cidade" value=""
+                                    maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="uf" class="col-sm-2 control-label">UF</label>
+                            <div class="col-sm-1">
+                                <input type="text" class="form-control" id="uf" name="uf" value="" maxlength="2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="page-header">
+                <h2>Formulário de pesquisa</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-info">
+                    <p class="text-center">Estas questões fazem parte da entrevista e não têm respostas mais ou
+                        menos adequadas.</p>
+                    <p class="text-center">Têm como objetivo principal conhecê-lo melhor quanto as perspectivas de
+                        atuação em seu trabalho.</p>
+                    <p class="text-center">Assinale as alternativas que mais motivam você ao desempenhar suas
+                        atividades profissionais.</p>
+                    <p class="text-center">Utilize o tempo que julgar necessário.</p>
+                </div>
+
+
+
+                <div class="col-md-6">
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="1" name="frases[]">Trabalhar com um líder que expressa
+                            praticidade</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="2" name="frases[]">Trabalhar com líder que expressa
+                            organização e estrutura</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="3" name="frases[]">Atender suas próprias
+                            convicções</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="4" name="frases[]">Atender suas próprias
+                            reflexões</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="5" name="frases[]">Desenvolver e despertar no outro sua
+                            capacidade intelectual</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="6" name="frases[]">Opinar sobre as diretrizes a serem
+                            seguidas</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="7" name="frases[]">Poder dividir com alguém seus
+                            questionamentos</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="8" name="frases[]">Pautar sua rotina com disciplina e
+                            organização</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="9" name="frases[]">Poder ser organizado e ter
+                            perspectivas</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="10" name="frases[]">Ter perspectivas e receber
+                            elogios</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="11" name="frases[]">Assumir cargos de destaque</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="12" name="frases[]">Poder responder de forma criativa
+                            aos estímulos que recebe</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="13" name="frases[]">Trabalhar com determinação</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="14" name="frases[]">Aconselhar</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="15" name="frases[]">Ensinar</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="16" name="frases[]">Buscar conhecimento mais
+                            profundo</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="17" name="frases[]">Buscar conhecimento
+                            interior</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="18" name="frases[]">Utilizar sua energia de forma
+                            racional</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="19" name="frases[]">Utilizar a diplomacia</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="20" name="frases[]">Esperar lhe causa
+                            impaciência</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="21" name="frases[]">Esperar mesmo que se sinta
+                            ansioso</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="22" name="frases[]">Ter oportunidade para
+                            aprender</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="23" name="frases[]">Sentir-se seguro</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="24" name="frases[]">Investigar e desvendar caminhos
+                            ainda não percorridos</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="25" name="frases[]">Encontrar soluções para situações
+                            difíceis</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="26" name="frases[]">Dar sequência aos trabalhos que
+                            desenvolveu</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="27" name="frases[]">Expressar-se de maneira franca e
+                            direta</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="28" name="frases[]">Trabalhar com profissionais
+                            otimistas</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="29" name="frases[]">Não executar trabalhos
+                            rotineiros</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="30" name="frases[]">Atuar em cargos que permitam
+                            autonomia</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="31" name="frases[]">Ensinar, treinar, apoiar e
+                            desenvolver sua equipe</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="32" name="frases[]">Ter tempo para pensar e ponderar
+                            antes de agir</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="33" name="frases[]">Dividir com seus pares assuntos
+                            ambíguos</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="34" name="frases[]">Ater-se aos grandes fatos e não aos
+                            detalhes</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="35" name="frases[]">Trabalhar para um líder
+                            atencioso</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="36" name="frases[]">Ser conselheiro e
+                            incentivador</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="37" name="frases[]">Trabalhar com profissionais
+                            visionários e futuristas</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="38" name="frases[]">Receber elogios
+                            constantemente</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="39" name="frases[]">Trabalhar incansavelmente</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="40" name="frases[]">Ter independência e não precisar de
+                            aprovação da chefia</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="41" name="frases[]">Concluir rapidamente, dos trabalhos
+                            mais simples aos mais complexos</label>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="42" name="frases[]">Buscar qualidade nos
+                            resultados</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="43" name="frases[]">Respeitar os prazos
+                            estabelecidos</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="44" name="frases[]">Ter controle das situações</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="45" name="frases[]">Ler, estudar, aprender</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="46" name="frases[]">Não ser interrompido nos momentos
+                            de introspecção</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="47" name="frases[]">Ter tranquilidade para cuidar de
+                            detalhes</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="48" name="frases[]">Ser popular, conhecido</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="49" name="frases[]">Poder fazer da equipe grandes
+                            amigos</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="50" name="frases[]">Viajar e conhecer lugares
+                            diferentes</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="51" name="frases[]">Desenvolver vários trabalhos ao
+                            mesmo tempo</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="52" name="frases[]">Ser reconhecido pelas metas
+                            atingidas</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="53" name="frases[]">Ter a certeza de que executou seu
+                            trabalho com perfeição</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="54" name="frases[]">Ter liberdade para agir mesmo que
+                            cometa erros</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="55" name="frases[]">Ter controle de suas
+                            atividades</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="56" name="frases[]">Competir, mesmo correndo o risco de
+                            perder</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="57" name="frases[]">Destacar-se pelas suas
+                            idéias</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="58" name="frases[]">Confiar em sua intuição</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="59" name="frases[]">Desenvolver especialização</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="60" name="frases[]">Trabalhar para um líder coerente em
+                            suas ações</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="61" name="frases[]">Ter constância em suas
+                            atividades</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="62" name="frases[]">Conhecer detalhadamente as suas
+                            tarefas</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="63" name="frases[]">Desenvolver sua equipe</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="64" name="frases[]">Desempenhar trabalhos que exijam
+                            paciência</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="65" name="frases[]">Preservar ambientes
+                            amigáveis</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="66" name="frases[]">Ter tempo para introspecção e
+                            análise</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="67" name="frases[]">Programar suas ações</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="68" name="frases[]">Assumir novas oportunidades</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="69" name="frases[]">Contatar pessoas com
+                            frequência</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="70" name="frases[]">Buscar crescimento</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="71" name="frases[]">Organizar e estruturar seu
+                            trabalho</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="72" name="frases[]">Preocupar-se com detalhes</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="73" name="frases[]">Controlar para não executar as
+                            mesmas tarefas duas vezes</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="74" name="frases[]">Ser crítico com profissionais
+                            descuidados</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="75" name="frases[]">Trabalhar com processos
+                            estruturados</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="76" name="frases[]">Vender</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="77" name="frases[]">Entregar</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="78" name="frases[]">Expressar sentimentos sem
+                            transparecer suas emoções</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="79" name="frases[]">Materializar suas idéias e
+                            planos</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="80" name="frases[]">Racionalizar seu trabalho</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="81" name="frases[]">Ter autonomia, dos trabalhos mais
+                            simples aos mais complexos</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="82" name="frases[]">Descarregar sua energia em
+                            trabalhos braçais</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <br>
+            <br>
+
+            <div class="row text-center">
+                <p><button class="btn btn-primary btn-lg" type="submit" role="button">Finalizar!</button></p>
+            </div>
+        </form>
+
+        <br>
+        <br>
+
+    </div>
+
+
+</body>
+
+<%-include ("partials/footer.ejs") %>

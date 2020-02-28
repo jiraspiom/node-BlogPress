@@ -24,6 +24,8 @@ conection
 //roda de teste
 app.use("/", artigoRota)
 
+app.use("/dados", (req, res )=> {res.render("dados")})
+
 app.use("/admin", categoriaRota)
 app.use("/admin", artigoRota)
 
