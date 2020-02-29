@@ -94,7 +94,7 @@ exports.update = (req, res) => {
 
 //relacionado ao artigo
 exports.home = (req, res) => {
-    Artigo.find().sort({ dateat: "desc" }).then((artigos) => {
+    Artigo.find().limit(5).sort({ dateat: "desc" }).then((artigos) => {
         res.render("index", { artigos: artigos })
     }).catch((erro) => {
         res.send("erro ao buscar os artigos - " + erro)
@@ -119,5 +119,25 @@ exports.artigosPorCategoria = (req, res) => {
 
     }).catch(erro => {
         res.send("erro ao buscar o artigo - erro: " + erro)
+    })
+}
+
+exports.artigopage = (req, res) => {
+    Artigo.find().populate("category").sort({ dateat: "desc" }).then((artigos) => {
+        res.render("article", { artigos: artigos })
+        //res.json(artigos)
+    }).catch(erro => {
+        res.send("erro ao carregar o artigo")
+    })
+}
+
+//paginacao ainda nao finalizado sera testado depois
+exports.paginacao = (req, res) => {
+    var page = Number(req.params.num)
+
+    //Artigo.paginate({},{page, limit:5}).then((artigos)=>{
+    Artigo.paginate({}, { page, limit: 5, populate: "category" }, (err, artigos) => {
+        res.render("article", { artigos: artigos })
+        //res.json(artigos)
     })
 }

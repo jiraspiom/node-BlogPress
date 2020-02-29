@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Scheme = mongoose.Schema;
+const mongoosePaginate = require('mongoose-paginate');
 
 const postagemSchema = new Scheme({
     title: {
@@ -28,5 +29,9 @@ const postagemSchema = new Scheme({
         default: Date.now()
     }
 });
+
+//usado na paginacao
+postagemSchema.plugin(mongoosePaginate);
+
 //minha colecao no mongo db vai se chamar postagens
 mongoose.model("articles", postagemSchema)

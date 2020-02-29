@@ -9,7 +9,11 @@ rotas.get("/ler/:slug", artigoControle.artigo)
 
 //lista todas as categorias para ver os artigos relacionado
 rotas.get("/categorias", categoriaControle.categoria)
+rotas.get("/artigos",artigoControle.artigopage)
 
 rotas.get("/categorias/:categoria", artigoControle.artigosPorCategoria)
+
+//paginacao
+rotas.get("/artigos/pagina/:num", artigoControle.paginacao)
 
 module.exports = rotas
