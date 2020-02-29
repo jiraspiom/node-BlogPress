@@ -52,9 +52,39 @@ exports.delete = (req, res) => {
         }).catch()
     } else { //null
         res.send("erro ao deletar")
-        //  res.redirect("/admin/artigos")
     }
 }
+
+exports.edit = (req, res) =>{
+    Artigo.findOne({_id: req.params.id}).then((artigo)=>{
+        if(artigo != undefined){
+            Categoria.find().then((categorias)=>{
+                res.render("admin/article/edit", {artigo: artigo, categorias: categorias})
+            }).catch((erro)=>{
+                res.send("erro ao buscar categoria " + erro)
+            })
+        }else{
+            res.send("Categoria nao encontrada")
+        }
+    }).catch((erro)=>{
+        res.send("Erro ao buscar artigo - " + erro)
+    })
+}
+
+exports.delete = (req, res) =>{
+    var id = req.body.id
+
+    if(id != undefined){
+        Artigo.remove({_id: id}).then(()=>{
+            res.redirect("/admin/artigos")
+        }).catch(erro => {
+            res.send("erro ao deletar a artigo" + erro )
+        })
+    }else{
+        res.send("id nao identificado")
+    }
+}
+
 
 //relacionado ao artigo
 exports.home = (req, res) => {
@@ -77,7 +107,8 @@ exports.artigo = (req, res) => {
 
 exports.artigosPorCategoria = (req, res) => {
     var idCategoria = req.params.categoria
-    Artigo.find({category: idCategoria}).then((artigos) => {
+
+    Artigo.find({category: idCategoria}).sort({dateat: "desc"}).then((artigos) => {
         res.render("article-for-category", { artigos: artigos })
 
     }).catch(erro => {

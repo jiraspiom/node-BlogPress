@@ -1,4 +1,55 @@
-<%- include ("../../partials/header.ejs") %>
-<%- include ("../../partials/navbar.ejs") %>
+<%-include ("../../partials/header.ejs") %>
+<%-include ("../../partials/navbar.ejs") %>
 
-<%- include ("../../partials/footer.ejs") %>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h4>Editar Artigo</h4>
+            </div>
+            <div class="card-body">
+                <form action="/admin/artigos/update" method="POST">
+                    <input type="hidden" name="id" value="<%= artigo.id %>">
+                    <input type="text" name="title" class="form-control mt-3" placeholder="Defina o nome do artigo"
+                        value="<%= artigo.title %>" required>
+                    <br>
+                    <textarea name="body" id="artigotiny" class="form-control"></textarea>
+                    <label for="categoria">Categorias:</label>
+                    <select name="category" id="categoria" class="custom-select">
+                        <% categorias.forEach(categoria => { %>
+                            <% if (categoria.id == artigo.category) { %>
+                                <option value="<%= categoria.id %>" selected> <%= categoria.title %> </option>
+                            <% } else { %>
+                                <option value="<%= categoria.id %>"> <%= categoria.title %> </option>
+                            <% } %>
+                        <% }) %>
+                    </select>
+
+                    <button type="submit" class="btn btn-success mt-3">Atualizar</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<div id="content" style="display: none;">
+    <%- artigo.body %>
+</div>
+
+<%-include ("../../partials/footer.ejs") %>
+
+<script src="/tinymce/tinymce.min.js"></script>
+
+<script>
+    tinymce.init({
+        language: 'pt_BR',
+        selector: '#artigotiny',
+        plugins: [
+            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+        ],
+        init_instance_callback: () => {
+            tinymce.get("artigotiny").setContent($("#content").html())
+        }
+    });
+</script>
