@@ -8,6 +8,6 @@ rotas.post("/artigos/save", controle.save)
 rotas.get("/artigos/", controle.index)
 rotas.post("/artigos/delete", controle.delete)
 rotas.get("/artigos/edit/:id", controle.edit)
-rotas.post("/artigos/delete", controle.delete)
+rotas.post("/artigos/update", controle.update)
 
 module.exports = rotas

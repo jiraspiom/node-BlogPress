@@ -55,34 +55,40 @@ exports.delete = (req, res) => {
     }
 }
 
-exports.edit = (req, res) =>{
-    Artigo.findOne({_id: req.params.id}).then((artigo)=>{
-        if(artigo != undefined){
-            Categoria.find().then((categorias)=>{
-                res.render("admin/article/edit", {artigo: artigo, categorias: categorias})
-            }).catch((erro)=>{
+exports.edit = (req, res) => {
+    Artigo.findOne({ _id: req.params.id }).then((artigo) => {
+        if (artigo != undefined) {
+            Categoria.find().then((categorias) => {
+                res.render("admin/article/edit", { artigo: artigo, categorias: categorias })
+            }).catch((erro) => {
                 res.send("erro ao buscar categoria " + erro)
             })
-        }else{
+        } else {
             res.send("Categoria nao encontrada")
         }
-    }).catch((erro)=>{
+    }).catch((erro) => {
         res.send("Erro ao buscar artigo - " + erro)
     })
 }
 
-exports.delete = (req, res) =>{
+exports.update = (req, res) => {
     var id = req.body.id
 
-    if(id != undefined){
-        Artigo.remove({_id: id}).then(()=>{
+    Artigo.findOne({ _id: id }).then((artigo) => {
+        artigo.title = req.body.title
+        artigo.body = req.body.body
+        artigo.category = req.body.category
+        artigo.slug = slugifly(req.body.title)
+
+        artigo.save().then(() => {
             res.redirect("/admin/artigos")
-        }).catch(erro => {
-            res.send("erro ao deletar a artigo" + erro )
+        }).catch((erro) => {
+            res.send("erro ao salvar artigo")
         })
-    }else{
-        res.send("id nao identificado")
-    }
+
+    }).catch((erro) => {
+        res.send("Erro ao buscar o artigo")
+    })
 }
 
 
@@ -108,7 +114,7 @@ exports.artigo = (req, res) => {
 exports.artigosPorCategoria = (req, res) => {
     var idCategoria = req.params.categoria
 
-    Artigo.find({category: idCategoria}).sort({dateat: "desc"}).then((artigos) => {
+    Artigo.find({ category: idCategoria }).sort({ dateat: "desc" }).then((artigos) => {
         res.render("article-for-category", { artigos: artigos })
 
     }).catch(erro => {
