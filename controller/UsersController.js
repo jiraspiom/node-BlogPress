@@ -1,6 +1,6 @@
 module.exports={
-    new(req, res){
-        res.render("user/new")
+    create(req, res){
+        res.render("user/create")
     },
 
     index(req,res){

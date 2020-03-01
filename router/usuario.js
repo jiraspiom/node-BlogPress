@@ -18,8 +18,8 @@ rotas.get("/categorias/:categoria", artigoControle.artigosPorCategoria)
 rotas.get("/artigos/pagina/:num", artigoControle.paginacao)
 
 //login ->
-rotas.get("/usuarios/new", usuarioControle.new)
-rotas.get("/usuarios/",usuarioControle.index)
+rotas.get("/admin/usuarios/create", usuarioControle.create)
+rotas.get("/admin/usuarios/",usuarioControle.index)
 
 //<-login
 
