@@ -19,6 +19,7 @@ rotas.get("/artigos/pagina/:num", artigoControle.paginacao)
 
 //login ->
 rotas.get("/admin/usuarios/create", usuarioControle.create)
+rotas.post("/admin/usuarios/create", usuarioControle.save)
 rotas.get("/admin/usuarios/",usuarioControle.index)
 
 //<-login

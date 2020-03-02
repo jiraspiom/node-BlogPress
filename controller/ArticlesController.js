@@ -125,7 +125,7 @@ exports.artigosPorCategoria = (req, res) => {
 exports.artigopage = (req, res) => {
     Artigo.find().populate("category").sort({ dateat: "desc" }).then((artigos) => {
         res.render("article", { artigos: artigos })
-        //res.json(artigos)
+        //res.json(artigodocs)
     }).catch(erro => {
         res.send("erro ao carregar o artigo")
     })
@@ -137,7 +137,7 @@ exports.paginacao = (req, res) => {
 
     //Artigo.paginate({},{page, limit:5}).then((artigos)=>{
     Artigo.paginate({}, { page, limit: 5, populate: "category" }, (err, artigos) => {
-        res.render("article", { artigos: artigos })
+        res.render("articlepaginado", { artigos: artigos })
         //res.json(artigos)
     })
 }

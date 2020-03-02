@@ -1,0 +1,31 @@
+<%-include ("./partials/header.ejs") %>
+<%- include ("./partials/navbar.ejs") %>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+                <% if (artigos.page != 1) { %>
+                    <a style="float: left;" href="/artigos/pagina/<%= artigos.page - 1 %> "> <<< Anterior </a>
+                <% } %>
+                <% if (artigos.page != artigos.pages) { %>
+                    <a style="float: right;" href="/artigos/pagina/<%= artigos.page + 1 %> "> Proximo >>> </a>
+                <% } %>
+            </div>
+        </div>
+        <% artigos.docs.forEach(artigo => { %>
+        <div class="card mt-3">
+            <div class="card-header">
+                <%= artigo.title %>
+            </div>
+            <div class="card-body">
+                <%- artigo.body %>
+                <small> categoria: <%= artigo.category.title %></small>
+
+            </div>
+        </div>
+        <% }) %>
+
+    </div>
+</body>
+<%-include ("partials/footer.ejs") %>
