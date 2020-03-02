@@ -8,5 +8,6 @@
 - npm install slugify --save
 - npm install mongoose-paginate --save
 - npm install bcrypt --save
+- npm install express-session --save
 
 ?sequelise para banco de dados relacional

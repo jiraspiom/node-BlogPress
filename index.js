@@ -1,6 +1,7 @@
 'use strict';
 const express = require("express")
 const app = express()
+const session = require("express-session")
 const bodyParser = require("body-parser")
 const conection = require("./database/database")
 
@@ -11,6 +12,12 @@ const rotaUsuario = require("./router/usuario")
 
 //carregar a view engina
 app.set('view engine', 'ejs') 
+
+//vou adicionar 30000= 30 segundo para testar a sessao
+app.use(session({
+    secret: "qualquercoisaabobrinha",
+    cookie: {maxAge: 30000}
+}))
 
 //statico
 app.use(express.static('public'))
