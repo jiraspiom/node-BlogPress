@@ -38,6 +38,13 @@ module.exports = {
     },
 
     index(req, res) {
-        res.render("user/index")
+
+        Usuario.find().then((usuarios)=>{
+            res.render("user/index", {usuarios: usuarios})
+            //res.json(usuarios)
+        }).catch((erro)=>{
+            res.send("nenhum usuario encontrado")
+        })
+
     }
 }
