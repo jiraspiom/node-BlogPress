@@ -21,6 +21,8 @@ rotas.get("/artigos/pagina/:num", artigoControle.paginacao)
 rotas.get("/admin/usuarios/create", usuarioControle.create)
 rotas.post("/admin/usuarios/create", usuarioControle.save)
 rotas.get("/admin/usuarios/",usuarioControle.index)
+rotas.get("/admin/usuarios/login", usuarioControle.wplogin)
+rotas.post("/admin/usuarios/login", usuarioControle.login)
 
 //<-login
 

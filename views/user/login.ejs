@@ -1,0 +1,26 @@
+<%-include ("../partials/header.ejs") %>
+<%-include ("../partials/navbar.ejs") %>
+<div class="container">
+
+    <div class="card">
+        <div class="card-header">
+            <h4>Logar como administrador</h4>
+        </div>
+        <div class="card-body">
+            <form action="/admin/usuarios/login" method="post">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control">
+
+                <label for="password">Senha</label>
+                <input type="password" name="password" id="password" class="form-control">
+
+                <button style="float: left;" type="submit" class="btn btn-success mt-3 btn-block">Logar</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+<%-include ("../partials/footer.ejs") %>

@@ -1,9 +1,10 @@
 const express = require("express")
 const rotas = express.Router()
 const controle = require("../controller/ArticlesController")
+const admimintradoAuth = require("../middleware/usuarioath")
 
 //admin
-rotas.get("/artigos/new",  controle.new)
+rotas.get("/artigos/new", admimintradoAuth, controle.new)
 rotas.post("/artigos/save", controle.save)
 rotas.get("/artigos/", controle.index)
 rotas.post("/artigos/delete", controle.delete)

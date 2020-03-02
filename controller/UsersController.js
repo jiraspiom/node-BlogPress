@@ -46,5 +46,37 @@ module.exports = {
             res.send("nenhum usuario encontrado")
         })
 
+    },
+
+    wplogin(req, res){
+        res.render("user/login")
+    },
+
+    login(req, res){
+        var email = req.body.email
+        var senha = req.body.password
+
+        Usuario.findOne({email: email}).then((usuario)=>{
+            if(usuario != undefined){
+                var correto = bcrypt.compareSync(senha, usuario.password)
+
+                if (correto){
+                    req.session.usuario = {
+                        id: usuario.id,
+                        email: usuario.email
+                    }
+                    res.json(req.session.usuario)
+                }else{
+                    res.send("senha invalida")
+                }
+            }else{
+                res.send("usuario nao encontrado")
+            }
+        }).catch((erro)=>{
+            res.send("erro ao buscar usuario por email - " + erro)
+        })
+
+     
     }
+
 }

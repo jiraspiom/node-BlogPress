@@ -32,6 +32,23 @@ conection
 //rodas de usuario
 app.use("/", rotaUsuario)
 
+app.get("/sessao", (req, res)=>{
+    req.session.pai = "gilmar"
+    req.session.filho = "alef"
+    req.session.videogame = {
+        nome: "xbox",
+         quantidade: 3}
+    res.send("sessao criada"
+    )
+})
+
+app.get("/sessaoler", (req, res)=>{
+    res.json({
+       pai: req.session.pai,
+        filho: req.session.filho
+    })
+})
+
 //rotas de adminstracao
 app.use("/admin", categoriaRota)
 app.use("/admin", artigoRota)
