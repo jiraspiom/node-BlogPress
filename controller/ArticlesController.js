@@ -103,8 +103,9 @@ exports.home = (req, res) => {
 
 //mostra o artigo pelo seu slug
 exports.artigo = (req, res) => {
-    Artigo.findOne({ slug: req.params.slug }).then((artigo) => {
+    Artigo.findOne({ slug: req.params.slug }).populate("category").then((artigo) => {
         res.render("article", { artigo: artigo })
+        //res.json(artigo)
 
     }).catch(erro => {
         res.send("erro ao buscar o artigo - erro: " + erro)
@@ -124,7 +125,7 @@ exports.artigosPorCategoria = (req, res) => {
 
 exports.artigopage = (req, res) => {
     Artigo.find().populate("category").sort({ dateat: "desc" }).then((artigos) => {
-        res.render("article", { artigos: artigos })
+        res.render("articlepaginado", { artigos: artigos })
         //res.json(artigodocs)
     }).catch(erro => {
         res.send("erro ao carregar o artigo")
