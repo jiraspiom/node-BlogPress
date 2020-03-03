@@ -45,7 +45,8 @@ app.get("/sessao", (req, res)=>{
 app.get("/sessaoler", (req, res)=>{
     res.json({
        pai: req.session.pai,
-        filho: req.session.filho
+        filho: req.session.filho,
+        video: req.session.videogame
     })
 })
 
