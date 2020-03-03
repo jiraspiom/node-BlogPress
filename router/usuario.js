@@ -23,6 +23,7 @@ rotas.post("/admin/usuarios/create", usuarioControle.save)
 rotas.get("/admin/usuarios/",usuarioControle.index)
 rotas.get("/admin/usuarios/login", usuarioControle.wplogin)
 rotas.post("/admin/usuarios/login", usuarioControle.login)
+rotas.get("/admin/usuarios/logout", usuarioControle.logout)
 
 //<-login
 

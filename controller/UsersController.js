@@ -22,10 +22,10 @@ module.exports = {
                     email: email,
                     password: hash
                 }
-   
-                new Usuario(novo).save().then(()=>{
+
+                new Usuario(novo).save().then(() => {
                     res.send("usuario cadastrado com sucesso ")
-                }).catch((erro)=>{
+                }).catch((erro) => {
                     res.send("erro ao gravar o novo usuario")
                 })
 
@@ -34,49 +34,54 @@ module.exports = {
             }
         }).catch((error) => {
             res.send("erro ao bucar o usuario" + error)
-        })   
+        })
     },
 
     index(req, res) {
 
-        Usuario.find().then((usuarios)=>{
-            res.render("user/index", {usuarios: usuarios})
+        Usuario.find().then((usuarios) => {
+            res.render("user/index", { usuarios: usuarios })
             //res.json(usuarios)
-        }).catch((erro)=>{
+        }).catch((erro) => {
             res.send("nenhum usuario encontrado")
         })
 
     },
 
-    wplogin(req, res){
+    wplogin(req, res) {
         res.render("user/login")
     },
 
-    login(req, res){
+    login(req, res) {
         var email = req.body.email
         var senha = req.body.password
 
-        Usuario.findOne({email: email}).then((usuario)=>{
-            if(usuario != undefined){
+        Usuario.findOne({ email: email }).then((usuario) => {
+            if (usuario != undefined) {
                 var correto = bcrypt.compareSync(senha, usuario.password)
 
-                if (correto){
+                if (correto) {
                     req.session.usuario = {
                         id: usuario.id,
                         email: usuario.email
                     }
                     res.json(req.session.usuario)
-                }else{
+                } else {
                     res.send("senha invalida")
                 }
-            }else{
+            } else {
                 res.send("usuario nao encontrado")
             }
-        }).catch((erro)=>{
+        }).catch((erro) => {
             res.send("erro ao buscar usuario por email - " + erro)
         })
 
-     
+
+    },
+
+    logout(req, res) {
+        req.session.usuario = undefined
+        res.redirect("/")
     }
 
 }
